@@ -1,7 +1,7 @@
 Package: ntpuR
 Type: Package
 Title: Package for NTPU economics students's R course
-Version: 0.1.0
+Version: 0.1.1
 Author: Martin Lin
 Maintainer: Martin Lin <mtlin@gm.ntpu.edu.tw>
 Description: Setup RStudio for a github link created project

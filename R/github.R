@@ -21,6 +21,11 @@ setup_github_username_email = function (){
     sep="\n") |>
     writeLines(renvpath)
 
+  lines <- readLines(".gitignore")
+  paste0(c(lines, ".Renviron"),collapse = "\n") |>
+           writeLines(".gitignore")
+
+
   rstudioapi::restartSession()
 
 }
