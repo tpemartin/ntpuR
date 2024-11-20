@@ -35,7 +35,6 @@ setup_github_username_email = function (){
 #'
 setup_github_personal_access_token = function(){
 
-  if( Sys.getenv("github_username")=="") stop("Please run setup_github_username_email() first")
 
   usethis::create_github_token()
 
