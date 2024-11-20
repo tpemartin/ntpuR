@@ -3,7 +3,6 @@
 #' @return None
 #' @export
 #'
-#' @examples
 setup_github_username_email = function (){
 
   username <- rstudioapi::showPrompt("Github setup", "What is your Github username?")
@@ -34,7 +33,6 @@ setup_github_username_email = function (){
 #' @return None
 #' @export
 #'
-#' @examples
 setup_github_personal_access_token = function(){
 
   if( Sys.getenv("github_username")=="") stop("Please run setup_github_username_email() first")
@@ -75,7 +73,6 @@ setup_github_personal_access_token = function(){
 #' @return None
 #' @export
 #'
-#' @examples
 update_github_credentials = function(){
   usethis::use_git_config(user.name = Sys.getenv("github_username"), user.email =Sys.getenv("github_email"))
 
