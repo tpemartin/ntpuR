@@ -1,0 +1,15 @@
+Package: ntpuR
+Type: Package
+Title: Package for NTPU economics students's R course
+Version: 0.1.0
+Author: Martin Lin
+Maintainer: Martin Lin <mtlin@gm.ntpu.edu.tw>
+Description: Setup RStudio for a github link created project
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Imports: 
+    rstudioapi,
+    usethis,
+    gitcreds
+RoxygenNote: 7.3.2
