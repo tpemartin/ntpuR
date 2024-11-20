@@ -45,9 +45,6 @@ setup_github_personal_access_token = function(){
     paste0("GITHUB_PAT=",github_token) |>
       writeLines(".Renviron")
 
-    lines <- readLines(".gitignore")
-    paste0(c(lines, ".Renviron"),collapse = "\n") |>
-      writeLines(".gitignore")
 
   } else {
     paste0(c(
@@ -60,6 +57,10 @@ setup_github_personal_access_token = function(){
     warning("After session restart, please run update_github_credentials() to finish the setup.")
 
   }
+  lines <- readLines(".gitignore")
+  paste0(c(lines, ".Renviron"),collapse = "\n") |>
+    writeLines(".gitignore")
+
 
 
 
