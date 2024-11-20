@@ -43,15 +43,27 @@ setup_github_personal_access_token = function(){
 
   github_token <- rstudioapi::showPrompt("Github setup", "Perssonal Assess Token")
 
-  paste0(c(
-    paste0("github_username=", Sys.getenv("github_username")),
-    paste0("github_email=",Sys.getenv("github_email")),
-    paste0("renvpath=",Sys.getenv("renvpath")),
-    paste0("GITHUB_PAT=",github_token)),
-    sep="\n") |>
-    writeLines(Sys.getenv("renvpath"))
+  if( Sys.getenv("github_username")==""){
+    paste0("GITHUB_PAT=",github_token) |>
+      writeLines(".Renviron")
 
-  warning("After session restart, please run update_github_credentials() to finish the setup.")
+    lines <- readLines(".gitignore")
+    paste0(c(lines, ".Renviron"),collapse = "\n") |>
+      writeLines(".gitignore")
+
+  } else {
+    paste0(c(
+      paste0("github_username=", Sys.getenv("github_username")),
+      paste0("github_email=",Sys.getenv("github_email")),
+      paste0("renvpath=",Sys.getenv("renvpath")),
+      paste0("GITHUB_PAT=",github_token)),
+      sep="\n") |>
+      writeLines(Sys.getenv("renvpath"))
+    warning("After session restart, please run update_github_credentials() to finish the setup.")
+
+  }
+
+
 
   rstudioapi::restartSession()
 
