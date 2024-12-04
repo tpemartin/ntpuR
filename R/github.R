@@ -24,6 +24,13 @@ setup_github_username_email = function (){
   paste0(c(lines, ".Renviron"),collapse = "\n") |>
            writeLines(".gitignore")
 
+  username="econmtlin"
+  # Set the global Git user email
+  system(paste0('git config --global user.email "',email,'"'))
+
+  # Set the global Git user name
+  system(paste0('git config --global user.name "',username,'"'))
+
 
   rstudioapi::restartSession()
 
